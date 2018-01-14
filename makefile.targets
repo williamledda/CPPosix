@@ -1,0 +1,9 @@
+all:
+	echo "Running other targets..."
+	make -C ../source/ all
+	
+#clean-targets:
+#	echo "Cleaning other targets"
+#	make -C ../source/ clean
+
+#include ../source/Makefile
