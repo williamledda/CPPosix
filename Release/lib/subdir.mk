@@ -4,12 +4,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../lib/mutexp.cpp \
 ../lib/threadp.cpp 
 
 OBJS += \
+./lib/mutexp.o \
 ./lib/threadp.o 
 
 CPP_DEPS += \
+./lib/mutexp.d \
 ./lib/threadp.d 
 
 

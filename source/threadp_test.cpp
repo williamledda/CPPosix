@@ -9,7 +9,8 @@ using namespace cpposix;
 class MyThread: public ThreadP {
 public:
 	MyThread(const char* name) : ThreadP(name) {}
-	virtual void Handler(void) {
+
+	virtual void* handler(void) {
 		timespec now;
 		timespec *wait = reinterpret_cast<timespec*>(this->param.other);
 
@@ -20,6 +21,8 @@ public:
 					i << std::endl;
 			nanosleep(wait, NULL);
 		}
+
+		return (void*) NULL;
 	}
 };
 
@@ -29,10 +32,10 @@ int main(int argc, char** argv) {
 	timespec wait_1 = {0, 500000000};
 	timespec wait_2 = {1, 0};
 
-	th1.Create(static_cast<void*>(&wait_1), sizeof(wait_1));
-	th2.Create(static_cast<void*>(&wait_2), sizeof(wait_2));
+	th1.create(static_cast<void*>(&wait_1));
+	th2.create(static_cast<void*>(&wait_2));
 
-	th1.Join(); th2.Join();
+	th1.join(); th2.join();
 
 	std::cout << "Ended!" << std::endl;
 	return 0;
