@@ -4,14 +4,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../lib/csemp.cpp \
 ../lib/mutexp.cpp \
 ../lib/threadp.cpp 
 
 OBJS += \
+./lib/csemp.o \
 ./lib/mutexp.o \
 ./lib/threadp.o 
 
 CPP_DEPS += \
+./lib/csemp.d \
 ./lib/mutexp.d \
 ./lib/threadp.d 
 

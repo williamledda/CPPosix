@@ -23,7 +23,7 @@ struct ThreadParams {
 	unsigned int counter;
 };
 
-class MyThread: public cpposix::ThreadP {
+class MyThread: public ThreadP {
 public:
 	MyThread(const char* name) : ThreadP(name) {}
 
